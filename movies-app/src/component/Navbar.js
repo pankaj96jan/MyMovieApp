@@ -97,8 +97,8 @@ export default function Navbar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Login</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My Movies</MenuItem>
         </Menu>
     );
 
@@ -119,7 +119,7 @@ export default function Navbar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+            {/* <MenuItem>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
                         <MailIcon />
@@ -138,7 +138,7 @@ export default function Navbar() {
                     </Badge>
                 </IconButton>
                 <p>Notifications</p>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     size="large"
@@ -156,9 +156,9 @@ export default function Navbar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" sx={{ background: "linear-gradient(90deg, rgba(121,9,53,1) 0%, rgba(13,228,196,1) 56%, rgba(121,9,53,1) 100%)" }} >
                 <Toolbar>
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
@@ -166,32 +166,35 @@ export default function Navbar() {
                         sx={{ mr: 2 }}
                     >
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <Typography
-                        variant="h6"
+                        fontFamily="Roboto"
+                        variant="h5"
                         noWrap
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        MUI
+                        MOVIES-APP
                     </Typography>
-                    <Search>
+                    <Search 
+                    sx={{ flexGrow: 2 }}
+                    >
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="Search by Name..."
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                        {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="error">
                                 <MailIcon />
                             </Badge>
-                        </IconButton>
-                        <IconButton
+                        </IconButton> */}
+                        {/* <IconButton
                             size="large"
                             aria-label="show 17 new notifications"
                             color="inherit"
@@ -199,7 +202,7 @@ export default function Navbar() {
                             <Badge badgeContent={17} color="error">
                                 <NotificationsIcon />
                             </Badge>
-                        </IconButton>
+                        </IconButton> */}
                         <IconButton
                             size="large"
                             edge="end"
