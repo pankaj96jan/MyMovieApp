@@ -6,25 +6,19 @@ import MuiCard from "./MuiCard"
 
 const MoviesList = (props) => {
   const dispatch = useDispatch()
-  const movies = useSelector(state => state.movies[0]);
-  console.log(movies)
-
-
-
+  const movies = useSelector(state => state.movies);
   useEffect(() => {
     // action creator ko bulana he
-
     dispatch(startGetmovie())
-
   }, [dispatch])
 
 
   return (
     <div >
-      <h2>Listing Movies</h2>
-      <Grid container spacing={{ xs: 2, md:3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {movies && movies.map(ele => (
-          <Grid item xs={2} sm={4} md={4} key={ele._id}>
+      {/* <h2>Listing Movies -{movies.length}</h2> */}
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        {movies && movies.map((ele, i) => (
+          <Grid item xs={2} sm={4} md={4} key={i}>
             <MuiCard  {...ele} />
           </Grid>
         ))}

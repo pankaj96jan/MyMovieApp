@@ -13,10 +13,10 @@ const port= 4000;
 
 
 // for showing data in termial
-app.use(function(req,res,next){
-    console.log(`${req.method}-${req.url}-${req.ip}-${new Date()}`)
-    next()
-})
+// app.use(function(req,res,next){
+//     console.log(`${req.method}-${req.url}-${req.ip}-${new Date()}`)
+//     next()
+// })
 
 
 app.listen(port,()=>{
