@@ -10,7 +10,6 @@ import { Rating } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { wishMovies } from '../../action/movieaction';
 import EventIcon from '@mui/icons-material/Event';
-import BasicDateTimePicker from './BasicDateTimePicker';
 
 export default function MuiCard(props) {
   const dispatch = useDispatch()
@@ -28,7 +27,7 @@ export default function MuiCard(props) {
   }
 
   const handleThisWeek = () => {
-    return <BasicDateTimePicker/>
+    console.log("hi");
   }
 
 

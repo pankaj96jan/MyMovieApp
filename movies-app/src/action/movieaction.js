@@ -35,7 +35,7 @@ export const startSetMovie = (formData) => {
 export const wishMovies = (id) => {
     return (dispatch) => {
         axios
-            .get(`/api/movie/${id}`)
+            .get(`/api/movie/wishy/${id}`)
             .then((response) => {
                 const wishyMovie = response.data;
                 dispatch(wishlistMovies(wishyMovie));
