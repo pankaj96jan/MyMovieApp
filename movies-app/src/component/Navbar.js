@@ -94,8 +94,8 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Login</MenuItem>
-      <MenuItem onClick={handleMenuClose}>signup</MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{textDecoration:"none",color:"black"}} to="/login">Login</Link> </MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{textDecoration:"none",color:"black"}} to="/signup">Signup</Link></MenuItem>
     </Menu>
   );
 
@@ -132,9 +132,10 @@ export default function Navbar() {
   );
 
   return (
-    <Box position="sticky" sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="sticky"
+        
         sx={{
           background:
             "linear-gradient(90deg, rgba(121,9,53,1) 0%, rgba(13,228,196,1) 56%, rgba(121,9,53,1) 100%)",

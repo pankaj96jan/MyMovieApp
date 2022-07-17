@@ -33,3 +33,5 @@ app.listen(port,()=>{
 
 
 // https://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@github.com/AakashSoni1997/Movies_App.git
+
+// mongodb+srv://pankajsoni:Mongo1996$@moviesapp.rwz4rqo.mongodb.net/MoviesDB?retryWrites=true&w=majority

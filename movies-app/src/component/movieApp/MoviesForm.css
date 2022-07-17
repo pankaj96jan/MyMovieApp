@@ -1,0 +1,9 @@
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+label{
+    font-size: 20px;
+    padding-left: 10px;
+}

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const wishySchema = mongoose.Schema;
-const wishyMovieSchema = new wishySchema({
+const Schema = mongoose.Schema;
+const wishyMovieSchema = new Schema({
     name: {
         type: String,
         required: [true, "Please Write Movie Name"],
@@ -14,14 +14,15 @@ const wishyMovieSchema = new wishySchema({
         type: String,
         required: [true, "Please Fill  Movie Poster"],
     },
-    color: {
-        type: String,
-        default: "error"
-    }
-    // Movie: {
-    //     type: mongoose.Types.ObjectId,
+    // color: {
+    //     type: String,
+    //     default: "error",
+    // },
+    // Movie:[ {
+    //     type: Schema.Types.ObjectId,
     //     ref: "Movie",
-    // } 
+    //     // required:true
+    // }]
 })
 
 const wishyMovie = mongoose.model("wishyMovie", wishyMovieSchema);

@@ -32,13 +32,28 @@ export const startSetMovie = (formData) => {
     };
 };
 
-export const wishMovies = (id) => {
+export const wishMovies = (movieData) => { //yha se hum wishy k backend ko denge
+    console.log(movieData, "movie action");
     return (dispatch) => {
         axios
-            .get(`/api/movie/wishy/${id}`)
+            .post(`/api/movie/wishy`, movieData)
             .then((response) => {
                 const wishyMovie = response.data;
                 dispatch(wishlistMovies(wishyMovie));
+            })
+
+            .catch((error) => {
+                alert(error.message);
+            });
+    };
+};
+
+export const startDeleteMovie = (id) => { //yha se hum wishy k backend ko denge
+    return (dispatch) => {
+        axios
+            .delete(`/api/movie/${id}`)
+            .then((response) => {
+                dispatch(deleteMovie())
             })
 
             .catch((error) => {
@@ -66,3 +81,10 @@ export const wishlistMovies = (wishy) => {
         payload: wishy,
     };
 };
+
+export const deleteMovie = (wishy) => {
+    return {
+        type: "DELETE_MOVIE",
+    };
+};
+

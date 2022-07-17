@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Rating } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { wishMovies } from '../../action/movieaction';
-import EventIcon from '@mui/icons-material/Event';
+import { startDeleteMovie, wishMovies } from '../../action/movieaction';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function MuiCard(props) {
   const dispatch = useDispatch()
@@ -19,16 +19,25 @@ export default function MuiCard(props) {
 
   const handleToggle = () => {
     if (toggle === "disabled") {
-      dispatch(wishMovies(_id))
+      dispatch(wishMovies({
+        _id,
+        name,
+        poster,
+        rating
+      }
+      ))
       setToggle("error")
     } else {
       setToggle("disabled")
     }
+    // window.location.replace("/wishlist")
+  }
+  const handleDelete = () => {
+    console.log(_id, "iddddddddddd");
+    dispatch(startDeleteMovie(_id))
+    window.location.reload();
   }
 
-  const handleThisWeek = () => {
-    console.log("hi");
-  }
 
 
 
@@ -43,7 +52,9 @@ export default function MuiCard(props) {
       <CardContent sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h5" sx={{ fontFamily: "Roboto" }} color="grey">{name}
         </Typography>
-        <IconButton onClick={handleThisWeek}><EventIcon/></IconButton>
+        <IconButton onClick={handleDelete}>
+          <DeleteForeverIcon />
+        </IconButton>
       </CardContent>
       <CardActions disableSpacing >
         <IconButton onClick={handleToggle} aria-label="add to favorites">

@@ -12,8 +12,9 @@ const movieReducer = (state = movieInitialvalue, action) => {
         case "SET_MOVIE": {
             return [...state, { ...action.payload }]
         }
-
-
+        case "DELETE_MOVIE": {
+            return [...state]
+        }
         default: {
             return [...state]
         }
