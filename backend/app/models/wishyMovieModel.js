@@ -13,7 +13,7 @@ const wishyMovieSchema = new Schema({
     poster: {
         type: String,
         required: [true, "Please Fill  Movie Poster"],
-    },
+    }   
     // color: {
     //     type: String,
     //     default: "error",

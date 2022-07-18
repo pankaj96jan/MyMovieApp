@@ -8,6 +8,7 @@ import MyMovies from './MyMovies'
 import MoviesThisWeek from './MoviesThisWeek'
 import Login from "./component/movieApp/Login"
 import Signup from "./component/movieApp/Signup"
+import Footer from './component/Footer'
 
 const App = (props) => {
   return (
@@ -20,8 +21,8 @@ const App = (props) => {
         <Route exact={true} path='/thisweekend' element={<MoviesThisWeek />} />
         <Route exact={true} path='/login' element={<Login />} />
         <Route exact={true} path='/signup' element={<Signup />} />
-
       </Routes>
+      <Footer />
     </div>
   )
 }

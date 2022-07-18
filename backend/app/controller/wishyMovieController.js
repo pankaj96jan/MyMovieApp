@@ -5,7 +5,9 @@ const wishyMovieCltr = {};
 
 // create wishyMovie form
 wishyMovieCltr.create = (req, res) => {
+    console.log(req.user,"createcompo");
     const body = req.body;
+
     const wishyMovies = new wishyMovie(body);
     wishyMovies
         .save()

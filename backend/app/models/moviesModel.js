@@ -14,6 +14,9 @@ const movieSchema = new Schema({
     type: String,
     required: [true, "Please Fill  Movie Poster"],
   },
+  user: {
+    
+  }
 });
 //create a model for Ticket
 const Movie = mongoose.model("Movie", movieSchema);

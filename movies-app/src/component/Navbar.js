@@ -54,6 +54,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const [searchinput, setSearchinput] = React.useState("")
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -72,6 +75,11 @@ export default function Navbar() {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
+
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+    setSearchinput(e.target.value)
+  }
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -94,8 +102,8 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}><Link style={{textDecoration:"none",color:"black"}} to="/login">Login</Link> </MenuItem>
-      <MenuItem onClick={handleMenuClose}><Link style={{textDecoration:"none",color:"black"}} to="/signup">Signup</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{ textDecoration: "none", color: "black" }} to="/login">Login</Link> </MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{ textDecoration: "none", color: "black" }} to="/signup">Signup</Link></MenuItem>
     </Menu>
   );
 
@@ -135,7 +143,7 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="sticky"
-        
+
         sx={{
           background:
             "linear-gradient(90deg, rgba(121,9,53,1) 0%, rgba(13,228,196,1) 56%, rgba(121,9,53,1) 100%)",
@@ -153,11 +161,12 @@ export default function Navbar() {
               MOVIES-APP
             </Link>
           </Typography>
-          <Search sx={{ flexGrow: 1.5 }}>
+          <Search onChange={handleSearch} sx={{ flexGrow: 1.5 }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
+            <StyledInputBase //input of html
+              value={searchinput}
               placeholder="Search by Name..."
               inputProps={{ "aria-label": "search" }}
             />
@@ -181,16 +190,6 @@ export default function Navbar() {
                   to="/wishlist"
                 >
                   My Wishlist
-                </Link>
-              </Typography>
-            </IconButton>
-            <IconButton color="inherit" sx={{ mx: "1rem" }}>
-              <Typography sx={{ fontFamily: "Roboto" }} variant="h6">
-                <Link
-                  style={{ textDecoration: "none", color: "white" }}
-                  to="/wishlist"
-                >
-                  This Weekend
                 </Link>
               </Typography>
             </IconButton>

@@ -1,14 +1,16 @@
-const express=require('express')
-const moviesDB=require("./config/database")
-const router= require("./config/routes")
+const express = require('express')
+const moviesDB = require("./config/database")
+const router = require("./config/routes")
+const cookieParser = require("cookie-parser")
 
-const app=express()
+const app = express()
 app.use(express.json())
+app.use(cookieParser())
 app.use(router)
 
 moviesDB()
 
-const port= 4000;
+const port = 4000;
 
 
 
@@ -19,7 +21,7 @@ const port= 4000;
 // })
 
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log("server is working fine", port)
 })
 

@@ -4,7 +4,9 @@ const movieCltr = {};
 
 // create movie form
 movieCltr.create = (req, res) => {
+
   const body = req.body;
+  body.user = req.user._id
   const movie = new Movie(body);
   movie
     .save()
